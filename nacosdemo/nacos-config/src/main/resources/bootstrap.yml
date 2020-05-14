@@ -1,0 +1,18 @@
+server:
+  port: 9500
+
+spring: 
+ # profiles:
+ #   active: test    
+  application: 
+    name: nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848   #指定注册的地址,若不注册到注册中心，可不配置
+      config:
+        server-addr: 127.0.0.1:8848   #指定获取文件配置的所在地址
+        prefix: nacos-config2   #配置文件的前缀
+        file-extension: yml           # 配置文件的后缀
+      #  group: DEV_GROUP    
+        namespace: 0f345194-0185-4046-ac20-9bc253a19fe5

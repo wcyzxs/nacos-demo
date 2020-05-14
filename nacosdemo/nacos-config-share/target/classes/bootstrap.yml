@@ -1,0 +1,27 @@
+server:
+  port: 9600
+
+spring: 
+  application:
+    name: nacos-config-share
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: nacos-config    #配置文件的前缀  (例如nacos-config-dev.yml,那么这里就应该填写nacos-config)
+        file-extension: yml
+ ###################以下情况是两个配置文件均在一个group下面执行的，可以实现共享#######################################
+     #   shared-dataids: nacos-config-share1.yml,nacos-config-share2.yml   #指定要读取共享配置文件的DataID,多个文件用,分隔
+     #   refreshable-dataids: nacos-config-share1.yml,nacos-config-share2.yml  #指定共享配置文件支持自动刷新
+ ###################可以与shared-dataids方案结合使用，用户自定义配置。灵活性强#######################################
+        ext-config:
+        - data-id: nacos-config-share3.yml
+          group: share3_GROUP
+          refresh: true
+        - data-id: nacos-config-share4.yml
+          group: share4_GROUP
+          refresh: false  
+
+        
