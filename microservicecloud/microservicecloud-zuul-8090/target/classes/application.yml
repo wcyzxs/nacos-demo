@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: zuul
+    
+eureka:
+  client:
+    service-url: 
+     defaultZone: http://localhost:7001/eureka
+     
+zuul: 
+    ignored-services: provider8000 # 不允许用微服务名访问了，如果禁用所有的，可以使用 "*"
+    routes: 
+      prefix: /zuul # 给路由加一个统一的前缀
+      # 如下指定新的映射
+      order:
+        serviceId: provider8000
+        path: /test/**
+
+ 

@@ -1,0 +1,13 @@
+server: 
+  port: 8200 
+  
+spring:
+  application:
+    name:  microservicecloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/wcyzxs/microservicecloud-config.git #GitHub上面的git仓库名字
+          username: wcyzxs
+          password: wcyzxs0829

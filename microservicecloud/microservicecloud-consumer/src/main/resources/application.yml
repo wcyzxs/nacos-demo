@@ -1,0 +1,18 @@
+server:
+  port: 3000
+
+spring:
+  application:
+    name: consumer
+    
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://localhost:7001/eureka
+
+feign:
+  hystrix: 
+    enabled: true
+
+
+   
